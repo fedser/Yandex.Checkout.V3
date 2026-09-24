@@ -46,6 +46,14 @@ public class ReceiptItem
     public string ProductCode { get; set; }
 
     /// <summary>
+    /// Код товара для формирования чека по ФФД 1.2.
+    /// </summary>
+    /// <remarks>
+    /// See https://yookassa.ru/developers/api#create_receipt_items_mark_code_info
+    /// </remarks>
+    public MarkCodeInfo MarkCodeInfo { get; set; }
+
+    /// <summary>
     /// Код страны происхождения товара по общероссийскому классификатору стран мира.
     /// Пример: RU.
     /// </summary>
