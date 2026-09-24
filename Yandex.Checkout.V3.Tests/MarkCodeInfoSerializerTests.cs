@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Yandex.Checkout.V3.Tests
@@ -5,6 +6,63 @@ namespace Yandex.Checkout.V3.Tests
     [TestClass]
     public sealed class MarkCodeInfoSerializerTests
     {
+        [TestMethod]
+        public void MarkCodeInfoProperties_AreDeclaredNullable()
+        {
+            // Arrange
+            var propertyNames = new[]
+            {
+                nameof(MarkCodeInfo.MarkCodeRaw),
+                nameof(MarkCodeInfo.Unknown),
+                nameof(MarkCodeInfo.Ean8),
+                nameof(MarkCodeInfo.Ean13),
+                nameof(MarkCodeInfo.Itf14),
+                nameof(MarkCodeInfo.Gs10),
+                nameof(MarkCodeInfo.Gs1M),
+                nameof(MarkCodeInfo.Short),
+                nameof(MarkCodeInfo.Fur),
+                nameof(MarkCodeInfo.Egais20),
+                nameof(MarkCodeInfo.Egais30)
+            };
+            var nullabilityContext = new NullabilityInfoContext();
+
+            foreach (var propertyName in propertyNames)
+            {
+                // Act
+                var property = typeof(MarkCodeInfo).GetProperty(propertyName);
+                var nullability = nullabilityContext.Create(property);
+
+                // Assert
+                Assert.AreEqual(
+                    NullabilityState.Nullable,
+                    nullability.ReadState,
+                    $"Property {propertyName} must be optional.");
+            }
+        }
+
+        [TestMethod]
+        public void MarkCodeInfoProperty_IsDeclaredNullable()
+        {
+            // Arrange
+            var property = typeof(ReceiptItem).GetProperty(nameof(ReceiptItem.MarkCodeInfo));
+
+            // Act
+            var nullability = new NullabilityInfoContext().Create(property);
+
+            // Assert
+            Assert.AreEqual(NullabilityState.Nullable, nullability.ReadState);
+        }
+
+        [TestMethod]
+        public void SerializeObject_ReceiptItemWithoutMarkCodeInfo_OmitsField()
+        {
+            // Act
+            var json = Serializer.SerializeObject(new ReceiptItem());
+
+            // Assert
+            Assert.AreEqual("{\"quantity\":0.0,\"vat_code\":0}", json);
+        }
+
         [TestMethod]
         public void SerializeObject_ReceiptItemWithMarkCodeInfo_UsesYooKassaFieldNames()
         {
