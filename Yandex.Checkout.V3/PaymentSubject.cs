@@ -57,9 +57,39 @@ public enum PaymentSubject
     Payment,
 
     /// <summary>
+    /// Платеж казино.
+    /// </summary>
+    Casino,
+
+    /// <summary>
     /// Агентское вознаграждение
     /// </summary>
     AgentCommission,
+
+    /// <summary>
+    /// Имущественное право.
+    /// </summary>
+    PropertyRight,
+
+    /// <summary>
+    /// Внереализационный доход.
+    /// </summary>
+    NonOperatingGain,
+
+    /// <summary>
+    /// Страховой сбор.
+    /// </summary>
+    InsurancePremium,
+
+    /// <summary>
+    /// Торговый сбор.
+    /// </summary>
+    SalesTax,
+
+    /// <summary>
+    /// Курортный сбор.
+    /// </summary>
+    ResortFee,
 
     /// <summary>
     /// Несколько вариантов
@@ -69,5 +99,75 @@ public enum PaymentSubject
     /// <summary>
     /// Другое
     /// </summary>
-    Another
+    Another,
+
+    /// <summary>
+    /// Маркированный товар.
+    /// </summary>
+    Marked,
+
+    /// <summary>
+    /// Маркированный товар без кода маркировки.
+    /// </summary>
+    NonMarked,
+
+    /// <summary>
+    /// Маркированный подакцизный товар.
+    /// </summary>
+    MarkedExcise,
+
+    /// <summary>
+    /// Маркированный подакцизный товар без кода маркировки.
+    /// </summary>
+    NonMarkedExcise,
+
+    /// <summary>
+    /// Пени, штраф, вознаграждение или бонус.
+    /// </summary>
+    Fine,
+
+    /// <summary>
+    /// Страховые взносы.
+    /// </summary>
+    Tax,
+
+    /// <summary>
+    /// Залог.
+    /// </summary>
+    Lien,
+
+    /// <summary>
+    /// Расход.
+    /// </summary>
+    Cost,
+
+    /// <summary>
+    /// Выдача денежных средств.
+    /// </summary>
+    AgentWithdrawals,
+
+    /// <summary>
+    /// Пенсионные взносы без выплат физическим лицам.
+    /// </summary>
+    PensionInsuranceWithoutPayouts,
+
+    /// <summary>
+    /// Пенсионные взносы с выплатами физическим лицам.
+    /// </summary>
+    PensionInsuranceWithPayouts,
+
+    /// <summary>
+    /// Медицинские взносы без выплат физическим лицам.
+    /// </summary>
+    HealthInsuranceWithoutPayouts,
+
+    /// <summary>
+    /// Медицинские взносы с выплатами физическим лицам.
+    /// </summary>
+    HealthInsuranceWithPayouts,
+
+    /// <summary>
+    /// Взносы на обязательное социальное страхование.
+    /// </summary>
+    HealthInsurance
 }
