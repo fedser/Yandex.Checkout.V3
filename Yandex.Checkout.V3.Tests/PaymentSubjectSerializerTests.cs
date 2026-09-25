@@ -32,4 +32,12 @@ public sealed class PaymentSubjectSerializerTests
 
         StringAssert.Contains(json, $"\"payment_subject\":\"{expectedValue}\"");
     }
+
+    [TestMethod]
+    public void DeserializeObject_ReceiptItemWithInsurancePremium_UsesPaymentSubjectInsurancePremium()
+    {
+        var item = Serializer.DeserializeObject<ReceiptItem>("{\"payment_subject\":\"insurance_premium\"}");
+
+        Assert.AreEqual(PaymentSubject.InsurancePremium, item.PaymentSubject);
+    }
 }
