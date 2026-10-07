@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45;net40</TargetFrameworks>
+    <PackageId>PM.Yandex.Checkout.V3</PackageId>
     <Version>4.3.1</Version>
     <Authors>morpher;ili</Authors>
     <Title>YooMoney/YooKassa API wrapper</Title>
